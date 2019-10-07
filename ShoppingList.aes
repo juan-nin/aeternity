@@ -26,7 +26,7 @@ contract ShoppingList =
     public entrypoint getTotalPrice() : int =
         state.totalPrice
     
-    public stateful entrypoint addItemtoList(code, name, quantity, price) = 
+    public stateful entrypoint addItemToList(code, name, quantity, price) = 
         let newItem = {code = code, name = name, quantity = quantity, price = price}
         put(state{itemsList = newItem::state.itemsList})
         put(state{totalItemsQuantity = state.totalItemsQuantity + quantity})
