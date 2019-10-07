@@ -1,0 +1,36 @@
+
+contract ShoppingList =
+
+    record state = {
+        itemsList : list(item),
+        totalItemsQuantity : int,
+        totalPrice : int}
+
+    record item = {
+        code : string, 
+        name : string, 
+        quantity: int,
+        price: int}
+
+    stateful entrypoint init() = 
+        { itemsList = [],
+          totalItemsQuantity = 0,
+          totalPrice = 0 }
+
+    public entrypoint getItemsList() : list(item) =
+        state.itemsList
+
+    public entrypoint getTotalItemsQuantity() : int =
+        state.totalItemsQuantity
+
+    public entrypoint getTotalPrice() : int =
+        state.totalPrice
+    
+    public stateful entrypoint addItemtoList(code, name, quantity, price) = 
+        let newItem = {code = code, name = name, quantity = quantity, price = price}
+        put(state{itemsList = newItem::state.itemsList})
+        put(state{totalItemsQuantity = state.totalItemsQuantity + quantity})
+        put(state{totalPrice = state.totalPrice + (quantity * price)})
+
+    
+        
