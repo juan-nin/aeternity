@@ -1,1 +1,1 @@
-# Ejercicios de taller de AEternity
+# AEternity workshop exercises
