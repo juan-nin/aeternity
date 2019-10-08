@@ -1,1 +1,1 @@
-# aeternity-ShoppingList
+# Ejercicios de taller de AEternity
